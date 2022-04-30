@@ -23,6 +23,7 @@ button {
 
 // NAVBAR
 nav {
+    width: auto;
     z-index: 3;
     grid-area: nav;
     color: $text-light;
@@ -128,7 +129,7 @@ main {
     z-index: 1;
     display: grid;
     padding: 20px 35px;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 300px;
     grid-gap: 35px;
 
     & h2 {
@@ -145,9 +146,9 @@ main {
         grid-gap: 35px;
     }
     .card {
-        overflow: elipsis;
+        text-overflow: ellipsis;
         display: grid;
-        grid-auto-rows: 1fr 3fr 1fr;
+        grid-auto-rows: 1fr minmax(150px, 3fr) 1fr;
         background-color: $primary-light-bg;
         padding-inline: 30px;
         border-left: 10px solid $card-accent;
@@ -168,6 +169,7 @@ main {
 }
 
 .sidebar {
+    overflow: scroll;
     .sidebar-card {
         background-color: $primary-light-bg;
         border-radius: 10px;
@@ -186,7 +188,20 @@ main {
         & hr {
             margin-bottom: 15px;
         }
-        
+        .sidebar-card-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            & img {
+                padding-right: 15px;
+            }
+        }
+        .user-handle {
+            font-weight: 500;
+        }
+        .user-tagline {
+
+        }
         
     }
 }
