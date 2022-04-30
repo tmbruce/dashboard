@@ -1,0 +1,130 @@
+@import 'utilities';
+@import 'colors';
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 5fr;
+    grid-template-rows: 1fr 6fr;
+    grid-template-areas: "nav header"
+                         "nav main";
+}
+button {
+    background-color: $primary-blue;
+    color: $text-light;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+// NAVBAR
+nav {
+    z-index: 3;
+    grid-area: nav;
+    color: $text-light;
+    background-color: $primary-blue;
+    display: grid;
+    padding: 10px 20px;
+    column-gap: 20px;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: repeat(12, 60px);
+    & img:nth-of-type(n) {
+        justify-self: end;
+        width: 30px
+    }
+    & img:first-of-type {
+        width: 60px;
+        grid-row: 1 / 3;
+        cursor: pointer;
+    }
+    & h3:first-of-type {
+        font-size: 2rem;
+        grid-row: 1 / 3;
+    }
+    & h3 {
+        cursor: pointer;
+    }
+    &:nth-child(odd) {
+        align-items: center;
+        font-size: 1.5rem;
+    }
+}
+
+//Header
+header {
+    grid-area: header;
+    display: grid;
+    padding-inline: 60px;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: $primary-light-bg;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(25, 25, 25, 0.5);
+    z-index: 2;
+    & input {
+        border: none;
+        width: 600px;
+        height: 2rem;
+        border-radius: 20px;
+        background-color: $primary-dark-bg;
+        margin-left: 15px;
+        padding-left: 15px;
+    }
+    & img {
+        width: 30px;
+    }
+    .search {
+        display: flex;
+    }
+    .profile {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        & h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        & img:nth-of-type(2) {
+            width: 50px;
+        }
+        & * {
+            margin-left: 20px;
+        }
+    }
+    .welcome {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: 40px 40px;
+        & img {
+            grid-row: 1 / 3;
+            width: 70px;
+            justify-self: center;
+        }
+        & h3 {
+            font-size: 1rem;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        & h2 {
+            font-size: 2rem;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+    }
+    .button-group {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+main {
+    grid-area: main;
+    background-color: $primary-dark-bg;
+    z-index: 1;
+}
+
